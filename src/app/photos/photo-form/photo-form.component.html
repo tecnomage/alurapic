@@ -25,7 +25,12 @@
       </div> 
     </ng-template>   -->
 </div>
-
+<ng-template #previewImage>
+  <div class="text-center">
+   <ap-photo [url]="preview" title="Preview">
+   </ap-photo>
+ </div> 
+</ng-template>  
     <div class="col-md-6">
       <div class="form-group">
         <textarea 
@@ -55,10 +60,4 @@
     </div>
   </form>
 </div>
-<!-- //FIXEME consertar para colocar na lateral do form -->
-<ng-template #previewImage>
-  <div class="text-center">
-   <ap-photo [url]="preview" title="Preview">
-   </ap-photo>
- </div> 
-</ng-template>
+<
