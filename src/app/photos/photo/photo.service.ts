@@ -43,4 +43,12 @@ export class PhotoService {
         + photoId +'/comments')
 
     }
+
+    addComments(photoId : number, commentText: string){
+
+        console.log(photoId +' '+ commentText)
+        return this.http.post(API + '/photos/'
+        + photoId +'/comments', { commentText })
+
+    }
 }
