@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { PhotoComment } from './../photo/photo.comment';
 import { Observable } from 'rxjs';
 import { PhotoService } from "./../photo/photo.service";
@@ -14,10 +15,13 @@ export class PhotoDetailsComponent implements OnInit {
   
   photo$: Observable<Photo>;
   photoId: number;
+  //detaisForm: FormGroup;
   
+  //TODO veriicar se FormGroup fica aqui
   constructor(
     private route: ActivatedRoute,
-    private photoService: PhotoService
+    private photoService: PhotoService,
+    //private formBuilder:  FormBuilder
   ) {}
 
   ngOnInit(): void {
