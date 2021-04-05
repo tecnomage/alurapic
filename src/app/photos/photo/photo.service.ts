@@ -39,16 +39,16 @@ export class PhotoService {
     }
 
     getComments(photoId : number){
+        console.log('entrou no get comments')
         return this.http.get<PhotoComment[]>(API + '/photos/'
         + photoId +'/comments')
 
     }
 
     addComments(photoId : number, commentText: string){
-
-        console.log(photoId +' '+ commentText)
-        return this.http.post(API + '/photos/'
-        + photoId +'/comments', { commentText })
+        console.log('entrou do addComments')
+        //console.log(photoId +' '+ commentText)
+         return this.http.post(API + '/photos/'+ photoId +'/comments', {commentText})
 
     }
 }
