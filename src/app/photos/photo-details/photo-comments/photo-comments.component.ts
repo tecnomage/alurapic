@@ -37,18 +37,15 @@ export class PhotoCommentsComponent implements OnInit {
     console.log(comment);
     // console.log(this.photoId);
 
-    this.photoService
-    .addComments(this.photoId, comment).
-     subscribe(() => {
+    this.comments$ = this.photoService.
+      addComments(this.photoId, comment).
+      pipe(switchMap(() =>
+        this.photoService.getComments(this.photoId)
+      )).
+      pipe(tap(() => {
         this.commentForm.reset();
-        alert('Comentário adicionado com sucesso');
-
-    })
-    // .pipe(switchMap(() => this.photoService.getComments(this.photoId)))
-    //         .pipe(tap(() => {
-    //             this.commentForm.reset();
-    //             alert('Comentário adicionado com sucesso');
-//  }));
+        console.log('Comentario adicionado com sucesso !');
+      }));
   }
 
 }
