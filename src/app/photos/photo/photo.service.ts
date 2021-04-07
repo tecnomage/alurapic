@@ -39,7 +39,7 @@ export class PhotoService {
     }
 
     getComments(photoId : number){
-        console.log('entrou no get comments')
+        
         return this.http.get<PhotoComment[]>(API + '/photos/'
         + photoId +'/comments')
 
@@ -51,4 +51,9 @@ export class PhotoService {
          return this.http.post(API + '/photos/'+ photoId +'/comments', {commentText})
 
     }
+
+    removePhoto(photoId: number) {
+        return this.http.delete(API + '/photos/' + photoId);
+    }
+
 }

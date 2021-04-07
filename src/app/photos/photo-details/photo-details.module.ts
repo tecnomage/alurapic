@@ -6,6 +6,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhotoDetailsComponent } from './photo-details.component';
 import { PhotoCommentsComponent } from './photo-comments/photo-comments.component';
+import { PhotoOwnerOnlyDirective } from './photo-owner-only/photo-owner-only.directive';
+
 
 @NgModule({
   imports: [
@@ -15,7 +17,7 @@ import { PhotoCommentsComponent } from './photo-comments/photo-comments.componen
     ReactiveFormsModule,
     VMessageModule
   ],
-  declarations: [PhotoDetailsComponent, PhotoCommentsComponent,PhotoCommentsComponent],
+  declarations: [PhotoDetailsComponent, PhotoCommentsComponent,PhotoCommentsComponent, PhotoOwnerOnlyDirective],
   exports: [PhotoDetailsComponent,PhotoCommentsComponent]
 })
 export class PhotoDetailsModule { }
