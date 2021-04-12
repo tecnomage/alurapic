@@ -15,7 +15,8 @@ export class HeaderComponent {
     constructor(
         private userService: UserService, 
         private router:Router) {
-
+        
+        //console.log(!this.userService.isLogged());    
         this.user$ = userService.getUser();
     }
 

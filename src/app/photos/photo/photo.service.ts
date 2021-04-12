@@ -3,6 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Photo } from "./photo";
+import { catchError, map } from 'rxjs/operators';
+import { of, throwError } from 'rxjs';
 
 const API = 'http://localhost:3000';
 
@@ -32,9 +34,23 @@ export class PhotoService {
         return this.http.post(API + '/photos/upload',formData);
     }
 
+    
+
     findById(photoId: number){
 
         return this.http.get<Photo>(API + '/photos/' + photoId)
+
+    }
+
+    like(photoId: number) {
+        
+        return this.http.post(
+            API + '/photos/' + photoId +  '/like', {}, {observe: 'response'}
+        ).
+        pipe(map(res => true)).
+        pipe(catchError(err => {
+            return err.status == '304' ? of(false) : throwError(err);
+        }));
 
     }
 
