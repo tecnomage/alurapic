@@ -23,7 +23,11 @@ const routes: Routes = [
         component: PhotoListComponent,
         resolve: {
             photos: PhotoListResolver
+        },
+        data:{
+            title:'Timeline'
         }
+       
     },
     { 
         path: 'p/add', 
