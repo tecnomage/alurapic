@@ -18,21 +18,17 @@
         *ngIf="photoForm.get('file').errors?.required">
       </ap-vmessage>  
     </div>
-    <!-- <ng-template #previewImage>
-       <div class="text-center">
-        <ap-photo [url]="preview" title="Preview">
-        </ap-photo>
-      </div> 
-    </ng-template>   -->
+  
 </div>
-<ng-template #previewImage>
+ <ng-template #previewImage>
   <div class="text-center">
    <ap-photo [url]="preview" title="Preview">
    </ap-photo>
  </div> 
 </ng-template>  
-    <div class="col-md-6">
-      <div class="form-group">
+<!-- FIXME da erro no form -->
+  - <div class="col-md-6">
+     <div class="form-group">
         <textarea 
           formControlName="description"
           class="form-control form-control-sm" 
@@ -41,7 +37,8 @@
             text="Maximun size allowed is 300" 
             *ngIf="photoForm.get('description').errors?.maxlength">
           </ap-vmessage>       
-      </div>
+      </div> 
+    </div> 
 
       <div class="form-group">
         <label class="text-muted">
@@ -59,9 +56,9 @@
             uploading {{ percentDone }}%
           </div>
         </ng-template>
-        <a class="btn btn-secondary btn-block">Cancel</a>
+      </div> 
+       </form> 
       </div>
-       </form>
-      </div>
+      
 
 
