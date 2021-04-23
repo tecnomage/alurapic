@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
    this.router.events
    .pipe(filter(event => event instanceof NavigationEnd))
    .pipe(map(() => {
-     console.log(this.activatedRoute.firstChild);
      return this.activatedRoute
     }))
    .pipe(map(route=> {
