@@ -23,7 +23,7 @@ export class AlertComponent {
   }
 
   removeAlert(alertToRemove: Alert): void {
-    console.log("entrou no removeAlert");
+    
     this.alerts = this.alerts.filter((alert) => alert != alertToRemove);
   }
 

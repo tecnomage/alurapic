@@ -8,16 +8,18 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
 import { PhotoDetailsComponent } from './photos/photo-details/photo-details.component';
 
+//TODO descomentar as rotas
 const routes: Routes = [
-    {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'home'
-    },
-    { 
-        path: 'home',
-        loadChildren: './home/home.module#HomeModule'
-    },              
+    //Desativado para debug
+    // {
+    //     path: '',
+    //     pathMatch: 'full',
+    //     redirectTo: 'home'
+    // },
+    // { 
+    //     path: 'home',
+    //     loadChildren: './home/home.module#HomeModule'
+    // },              
     { 
         path: 'user/:userName', 
         component: PhotoListComponent,
@@ -42,10 +44,10 @@ const routes: Routes = [
         path: 'not-found',
         component: NotFoundComponent
     },
-    {
-        path: '**',
-        redirectTo: 'not-found'
-    }
+    // {
+    //     path: '**',
+    //     redirectTo: 'not-found'
+    // }
  ];
 
 @NgModule({
