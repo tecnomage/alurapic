@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 
 
 const API = environment.serverLog;
-//const API = 'http://localhost:7000/infra';
+
 
 @Injectable({
   providedIn: 'root'

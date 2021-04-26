@@ -2,11 +2,13 @@ import { AuthGuard } from './core/auth/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { GlobalErrorComponent } from './errors/global-error/global-error/global-error.component';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
 import { PhotoDetailsComponent } from './photos/photo-details/photo-details.component';
+
 
 //TODO descomentar as rotas
 const routes: Routes = [
@@ -40,6 +42,13 @@ const routes: Routes = [
         path: 'p/:photoId',
         component: PhotoDetailsComponent,
     },
+    {
+        path: 'error',
+        component: GlobalErrorComponent,
+        data: {
+            title: "Error"
+        }
+    },
     { 
         path: 'not-found',
         component: NotFoundComponent
@@ -47,7 +56,8 @@ const routes: Routes = [
     {
         path: '**',
         redirectTo: 'not-found'
-    }
+    },
+     
  ];
 
 @NgModule({

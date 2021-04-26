@@ -1,12 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-
-import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Router } from '@angular/router';
 import { ErrorHandler, Injectable, Injector } from "@angular/core";
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
+import { environment } from './../../../environments/environment.prod';
 import { UserService } from 'src/app/core/user/user.service';
 import * as StackTrace from "stacktrace-js";
 import { ServerLogService } from './server-log.service';
-import { ServerLog } from './server-log';
+
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler { 
@@ -23,6 +23,7 @@ export class GlobalErrorHandler implements ErrorHandler {
         const location = this.injector.get(LocationStrategy);
         const userService = this.injector.get(UserService);
         const serverLogService = this.injector.get(ServerLogService);
+        const router = this.injector.get(Router);
 
         const url = location instanceof PathLocationStrategy
             ? location.path()
@@ -31,7 +32,11 @@ export class GlobalErrorHandler implements ErrorHandler {
         const message = error.message
             ? error.message :
             error.toString();
-
+        //console.log("esta em producao " + environment.production);
+        //if(!environment.production) 
+        
+        router.navigate(['/error']);
+           
         StackTrace
             .fromError(error)
             .then(stackFrames => {
