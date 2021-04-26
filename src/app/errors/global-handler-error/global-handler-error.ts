@@ -6,6 +6,7 @@ import { ErrorHandler, Injectable, Injector } from "@angular/core";
 import { UserService } from 'src/app/core/user/user.service';
 import * as StackTrace from "stacktrace-js";
 import { ServerLogService } from './server-log.service';
+import { ServerLog } from './server-log';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler { 
@@ -14,15 +15,15 @@ export class GlobalErrorHandler implements ErrorHandler {
 
     }
     
-    //TODO alterar para server-log depois
+
     handleError(error: any): void {
         
-        console.log('entrou no error handler');
+        console.log('entrou no handlerError');
 
         const location = this.injector.get(LocationStrategy);
         const userService = this.injector.get(UserService);
         const serverLogService = this.injector.get(ServerLogService);
-        //const httpService = this.injector.get(HttpClient);
+
         const url = location instanceof PathLocationStrategy
             ? location.path()
             : '';
@@ -45,20 +46,6 @@ export class GlobalErrorHandler implements ErrorHandler {
                     stack: stackAsString
                 };
 
-                //console.log(messagem_de_erro);
-                //Metodo para debugar
-                //serverLogService.log();
-                // .subscribe(retorno => 
-                //     { 
-                //         console.log('dentro do subscribe'),
-                //         console.log('o retorno da chamada foi : ' + retorno),
-                //         err => {
-                //                         console.log(err);
-                //                         console.log('Fail to send error log to server');
-                //                }
-                //     });
-                // });
-
                 //METODO ORIGINAL    
                     serverLogService.log(messagem_de_erro
                     ).subscribe(
@@ -73,6 +60,6 @@ export class GlobalErrorHandler implements ErrorHandler {
                     
 
 
-// }
+
             }
 }

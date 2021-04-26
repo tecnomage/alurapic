@@ -10,16 +10,16 @@ import { PhotoDetailsComponent } from './photos/photo-details/photo-details.comp
 
 //TODO descomentar as rotas
 const routes: Routes = [
-    //Desativado para debug
-    // {
-    //     path: '',
-    //     pathMatch: 'full',
-    //     redirectTo: 'home'
-    // },
-    // { 
-    //     path: 'home',
-    //     loadChildren: './home/home.module#HomeModule'
-    // },              
+    
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home'
+    },
+    { 
+        path: 'home',
+        loadChildren: './home/home.module#HomeModule'
+    },              
     { 
         path: 'user/:userName', 
         component: PhotoListComponent,
@@ -44,10 +44,10 @@ const routes: Routes = [
         path: 'not-found',
         component: NotFoundComponent
     },
-    // {
-    //     path: '**',
-    //     redirectTo: 'not-found'
-    // }
+    {
+        path: '**',
+        redirectTo: 'not-found'
+    }
  ];
 
 @NgModule({
