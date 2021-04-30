@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/core/user/user.service';
 
 import { Observable } from 'rxjs';
 import { PhotoService } from "./../photo/photo.service";
@@ -21,6 +22,7 @@ export class PhotoDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private photoService: PhotoService,
+    private userService: UserService,
     private router: Router,
     private alertService: AlertService
   ) {}
@@ -41,7 +43,7 @@ export class PhotoDetailsComponent implements OnInit {
       .subscribe(
       () => {
               this.alertService.success("Photo removed");
-              this.router.navigate(['']);
+              this.router.navigate(['/user', this.userService.getUserName()], { replaceUrl: true });
       },
       err => {
               console.log(err);

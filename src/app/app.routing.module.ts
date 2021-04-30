@@ -25,6 +25,7 @@ const routes: Routes = [
     { 
         path: 'user/:userName', 
         component: PhotoListComponent,
+        canActivate: [AuthGuard],
         resolve: {
             photos: PhotoListResolver
         },
