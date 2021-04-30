@@ -4,7 +4,7 @@ import { lowerCaseValidator } from '../../shared/validators/lower-case.validator
 import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
 import { NewUser } from './new-user';
 import { SignUpService } from './signup.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PlatformDetectorService } from '../../core/plataform-detector/platform-detector.service';
 import { userNamePassword } from './username-password.validator';
 
